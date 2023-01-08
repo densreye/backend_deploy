@@ -152,7 +152,7 @@ WSGI_APPLICATION = 'Backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'NAME': 'medicalbrokers$brokers',
+        'NAME': 'dennyssoft2023$medicalbrokers',
         'ENGINE': 'django.db.backends.mysql',
         'USER': 'dennyssoft2023',
         'PASSWORD': 'Python2023',
