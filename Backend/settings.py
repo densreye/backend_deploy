@@ -154,8 +154,9 @@ DATABASES = {
     'default': {
         'NAME': 'medicalbrokers$brokers',
         'ENGINE': 'django.db.backends.mysql',
-        'USER': 'root',
-        'PASSWORD': ''
+        'USER': 'dennyssoft2023',
+        'PASSWORD': 'Python2023',
+        'HOST': 'dennyssoft2023.mysql.pythonanywhere-services.com'
     }
 }
 
