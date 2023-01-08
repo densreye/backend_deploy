@@ -150,15 +150,26 @@ WSGI_APPLICATION = 'Backend.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'NAME': 'dennyssoft2023$medicalbrokers',
+# DATABASES = {
+#     'default': {
+#         'NAME': 'dennyssoft2023$medicalbrokers',
+#         'ENGINE': 'django.db.backends.mysql',
+#         'USER': 'dennyssoft2023',
+#         'PASSWORD': 'Python2023',
+#         'HOST': 'dennyssoft2023.mysql.pythonanywhere-services.com'
+#     }
+#}
+DATABASES ={
+
+     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'USER': 'dennyssoft2023',
-        'PASSWORD': 'Python2023',
-        'HOST': 'dennyssoft2023.mysql.pythonanywhere-services.com'
+        'NAME': 'heroku_9c355e644caa4b7',
+        'USER': 'b008c35df7fd93',
+        'PASSWORD': '98c360b6',
+        'HOST': 'us-cdbr-east-06.cleardb.net',
     }
 }
+
 
 
 #PythonAnywhere Configuración de base de datos
