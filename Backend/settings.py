@@ -150,7 +150,7 @@ WSGI_APPLICATION = 'Backend.wsgi.application'
 #     }
 # }
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'NAME': 'dennyssoft2023$medicalbrokers',
         'ENGINE': 'django.db.backends.mysql',
@@ -158,8 +158,9 @@ DATABASES = {
         'PASSWORD': 'Python2023',
         'HOST': 'dennyssoft2023.mysql.pythonanywhere-services.com'
     }
-}
-""" DATABASES ={
+}"""
+
+DATABASES ={
 
      'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -168,7 +169,7 @@ DATABASES = {
         'PASSWORD': '98c360b6',
         'HOST': 'us-cdbr-east-06.cleardb.net',
     }
-} """
+}
 
 
 

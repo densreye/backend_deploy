@@ -20,12 +20,13 @@ class Cargo(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-            
-            db_table = 'cargo'
+        managed = False
+        db_table = 'Cargo'
+
 
 class Cliente(models.Model):
     idcliente = models.AutoField(db_column='idCliente', primary_key=True)  # Field name made lowercase.
-    idpersona = models.ForeignKey('persona', models.DO_NOTHING, db_column='idPersona')  # Field name made lowercase.
+    idpersona = models.ForeignKey('Persona', models.DO_NOTHING, db_column='idPersona')  # Field name made lowercase.
     iddatosfacturacion = models.IntegerField(db_column='idDatosFacturacion', blank=True, null=True)  # Field name made lowercase.
     iddatosfinancieros = models.IntegerField(db_column='idDatosFinancieros', blank=True, null=True)  # Field name made lowercase.
     iddatospreexistencia = models.IntegerField(db_column='idDatosPreexistencia', blank=True, null=True)  # Field name made lowercase.
@@ -46,18 +47,18 @@ class Cliente(models.Model):
     referidocorreo = models.CharField(db_column='referidoCorreo', max_length=45, blank=True, null=True)  # Field name made lowercase.
     referidocelular = models.CharField(db_column='referidoCelular', max_length=45, blank=True, null=True)  # Field name made lowercase.
     ingresonoboa = models.DateField(db_column='ingresoNoboa', blank=True, null=True)  # Field name made lowercase.
-    agenteasignado = models.ForeignKey('empleado', models.DO_NOTHING, db_column='agenteAsignado', blank=True, null=True)  # Field name made lowercase.
-    idpreexistencia = models.ForeignKey('preexistencia', models.DO_NOTHING, db_column='idPreexistencia', blank=True, null=True)  # Field name made lowercase.
+    agenteasignado = models.ForeignKey('Empleado', models.DO_NOTHING, db_column='agenteAsignado', blank=True, null=True)  # Field name made lowercase.
+    idpreexistencia = models.ForeignKey('Preexistencia', models.DO_NOTHING, db_column='idPreexistencia', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        
-        db_table = 'cliente'
+        managed = False
+        db_table = 'Cliente'
 
 
 class Clientedependiente(models.Model):
     idclientedependiente = models.AutoField(db_column='idClienteDependiente', primary_key=True)  # Field name made lowercase.
     idcliente = models.ForeignKey(Cliente, models.DO_NOTHING, db_column='idCliente')  # Field name made lowercase.
-    iddependiente = models.ForeignKey('dependiente', models.DO_NOTHING, db_column='idDependiente')  # Field name made lowercase.
+    iddependiente = models.ForeignKey('Dependiente', models.DO_NOTHING, db_column='idDependiente')  # Field name made lowercase.
     parentescocontitular = models.CharField(db_column='parentescoConTitular', max_length=45, blank=True, null=True)  # Field name made lowercase.
     is_active = models.IntegerField(blank=True, null=True)
     fecha_creado = models.DateField(blank=True, null=True)
@@ -68,8 +69,8 @@ class Clientedependiente(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        
-        db_table = 'clientedependiente'
+        managed = False
+        db_table = 'ClienteDependiente'
 
 
 class Compania(models.Model):
@@ -88,25 +89,25 @@ class Compania(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        
-        db_table = 'compania'
+        managed = False
+        db_table = 'Compania'
 
 
 class Contactoprospecto(models.Model):
     idcontactoprospecto = models.AutoField(db_column='idContactoProspecto', primary_key=True)  # Field name made lowercase.
     contenido = models.CharField(max_length=255, blank=True, null=True)
     tipo = models.IntegerField(blank=True, null=True)
-    idprospecto = models.ForeignKey('prospecto', models.DO_NOTHING, db_column='idProspecto', blank=True, null=True)  # Field name made lowercase.
+    idprospecto = models.ForeignKey('Prospecto', models.DO_NOTHING, db_column='idProspecto', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        
-        db_table = 'contactoprospecto'
+        managed = False
+        db_table = 'ContactoProspecto'
 
 
 class Cotizacion(models.Model):
     idcotizacion = models.AutoField(db_column='idCotizacion', primary_key=True)  # Field name made lowercase.
-    idprospecto = models.ForeignKey('prospecto', models.DO_NOTHING, db_column='idProspecto', blank=True, null=True)  # Field name made lowercase.
-    idplan = models.ForeignKey('plan', models.DO_NOTHING, db_column='idPlan')  # Field name made lowercase.
+    idprospecto = models.ForeignKey('Prospecto', models.DO_NOTHING, db_column='idProspecto', blank=True, null=True)  # Field name made lowercase.
+    idplan = models.ForeignKey('Plan', models.DO_NOTHING, db_column='idPlan')  # Field name made lowercase.
     estado = models.IntegerField(db_column='Estado', blank=True, null=True)  # Field name made lowercase.
     motivocierre = models.TextField(blank=True, null=True)
     modificado = models.DateTimeField(db_column='Modificado')  # Field name made lowercase.
@@ -114,8 +115,8 @@ class Cotizacion(models.Model):
     filepath = models.TextField(blank=True, null=True)
 
     class Meta:
-        
-        db_table = 'cotizacion'
+        managed = False
+        db_table = 'Cotizacion'
 
 
 class Datosfinancieros(models.Model):
@@ -142,13 +143,13 @@ class Datosfinancieros(models.Model):
     razonsocial = models.CharField(db_column='razonSocial', max_length=45, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        
-        db_table = 'datosfinancieros'
+        managed = False
+        db_table = 'DatosFinancieros'
 
 
 class Deducible(models.Model):
     iddeducible = models.AutoField(db_column='idDeducible', primary_key=True)  # Field name made lowercase.
-    idplan = models.ForeignKey('plan', models.DO_NOTHING, db_column='idPlan')  # Field name made lowercase.
+    idplan = models.ForeignKey('Plan', models.DO_NOTHING, db_column='idPlan')  # Field name made lowercase.
     tipodeducible = models.CharField(db_column='tipoDeducible', max_length=45, blank=True, null=True)  # Field name made lowercase.
     valor = models.FloatField(blank=True, null=True)
     is_active = models.IntegerField(blank=True, null=True)
@@ -160,8 +161,8 @@ class Deducible(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        
-        db_table = 'deducible'
+        managed = False
+        db_table = 'Deducible'
 
 
 class Dependiente(models.Model):
@@ -183,16 +184,16 @@ class Dependiente(models.Model):
     talla = models.FloatField(blank=True, null=True)
     parentesco = models.CharField(max_length=45, blank=True, null=True)
     correo = models.CharField(max_length=45, blank=True, null=True)
-    idpreexistencia = models.ForeignKey('preexistencia', models.DO_NOTHING, db_column='idPreexistencia', blank=True, null=True)  # Field name made lowercase.
+    idpreexistencia = models.ForeignKey('Preexistencia', models.DO_NOTHING, db_column='idPreexistencia', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        
-        db_table = 'dependiente'
+        managed = False
+        db_table = 'Dependiente'
 
 
 class Direccion(models.Model):
     iddireccion = models.AutoField(db_column='idDireccion', primary_key=True)  # Field name made lowercase.
-    idpersona = models.ForeignKey('persona', models.DO_NOTHING, db_column='idPersona', blank=True, null=True)  # Field name made lowercase.
+    idpersona = models.ForeignKey('Persona', models.DO_NOTHING, db_column='idPersona', blank=True, null=True)  # Field name made lowercase.
     tipodireccion = models.CharField(db_column='tipoDireccion', max_length=45, blank=True, null=True)  # Field name made lowercase.
     pais = models.CharField(max_length=45, blank=True, null=True)
     provincia = models.CharField(max_length=45, blank=True, null=True)
@@ -207,8 +208,8 @@ class Direccion(models.Model):
     datodireccion = models.CharField(db_column='datoDireccion', max_length=255, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        
-        db_table = 'direccion'
+        managed = False
+        db_table = 'Direccion'
 
 
 class Documentodependiente(models.Model):
@@ -226,13 +227,13 @@ class Documentodependiente(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        
-        db_table = 'documentodependiente'
+        managed = False
+        db_table = 'DocumentoDependiente'
 
 
 class Documentoempleado(models.Model):
     iddocumento = models.AutoField(db_column='idDocumento', primary_key=True)  # Field name made lowercase.
-    idempleado = models.ForeignKey('empleado', models.DO_NOTHING, db_column='idEmpleado')  # Field name made lowercase.
+    idempleado = models.ForeignKey('Empleado', models.DO_NOTHING, db_column='idEmpleado')  # Field name made lowercase.
     urlarchivo = models.CharField(db_column='urlArchivo', max_length=255, blank=True, null=True)  # Field name made lowercase.
     tipodocumento = models.CharField(db_column='tipoDocumento', max_length=45, blank=True, null=True)  # Field name made lowercase.
     descripciondocumento = models.CharField(db_column='descripcionDocumento', max_length=255, blank=True, null=True)  # Field name made lowercase.
@@ -245,8 +246,8 @@ class Documentoempleado(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        
-        db_table = 'documentoempleado'
+        managed = False
+        db_table = 'DocumentoEmpleado'
 
 
 class Documentofinanciero(models.Model):
@@ -264,13 +265,13 @@ class Documentofinanciero(models.Model):
     idcliente = models.ForeignKey(Cliente, models.DO_NOTHING, db_column='idCliente', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        
-        db_table = 'documentofinanciero'
+        managed = False
+        db_table = 'DocumentoFinanciero'
 
 
 class Empleado(models.Model):
     idempleado = models.AutoField(db_column='idEmpleado', primary_key=True)  # Field name made lowercase.
-    idpersona = models.ForeignKey('persona', models.DO_NOTHING, db_column='idPersona')  # Field name made lowercase.
+    idpersona = models.ForeignKey('Persona', models.DO_NOTHING, db_column='idPersona')  # Field name made lowercase.
     fechaingresonoboa = models.DateField(db_column='fechaIngresoNoboa', blank=True, null=True)  # Field name made lowercase.
     idcargo = models.ForeignKey(Cargo, models.DO_NOTHING, db_column='idCargo', blank=True, null=True)  # Field name made lowercase.
     is_active = models.IntegerField(blank=True, null=True)
@@ -284,8 +285,8 @@ class Empleado(models.Model):
     correo = models.CharField(max_length=45, blank=True, null=True)
 
     class Meta:
-        
-        db_table = 'empleado'
+        managed = False
+        db_table = 'Empleado'
 
 
 class Notificacionventas(models.Model):
@@ -297,8 +298,8 @@ class Notificacionventas(models.Model):
     creado = models.DateTimeField()
 
     class Meta:
-        
-        db_table = 'notificacionventas'
+        managed = False
+        db_table = 'NotificacionVentas'
 
 
 class Notificacionventasremitentes(models.Model):
@@ -307,8 +308,8 @@ class Notificacionventasremitentes(models.Model):
     visto = models.IntegerField()
 
     class Meta:
-        
-        db_table = 'notificacionventasremitentes'
+        managed = False
+        db_table = 'NotificacionVentasRemitentes'
         unique_together = (('idnotificacion', 'idagente'),)
 
 
@@ -330,11 +331,11 @@ class Persona(models.Model):
     modificado_por_usuario = models.CharField(max_length=45, blank=True, null=True)
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
     estadocivil = models.CharField(db_column='estadoCivil', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    idusuario = models.ForeignKey('usuario', models.DO_NOTHING, db_column='idUsuario', blank=True, null=True)  # Field name made lowercase.
+    idusuario = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='idUsuario', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        
-        db_table = 'persona'
+        managed = False
+        db_table = 'Persona'
 
 
 class Plan(models.Model):
@@ -360,7 +361,8 @@ class Plan(models.Model):
     edad_maxima= models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
-        db_table = 'plan'
+        managed = False
+        db_table = 'Plan'
 
 
 class Prospecto(models.Model):
@@ -377,8 +379,8 @@ class Prospecto(models.Model):
     creado = models.DateTimeField()
 
     class Meta:
-        
-        db_table = 'prospecto'
+        managed = False
+        db_table = 'Prospecto'
 
 
 class Prospectosesion(models.Model):
@@ -392,8 +394,8 @@ class Prospectosesion(models.Model):
     idcontactoprospecto = models.ForeignKey(Contactoprospecto, models.DO_NOTHING, db_column='idContactoProspecto', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        
-        db_table = 'prospectosesion'
+        managed = False
+        db_table = 'ProspectoSesion'
 
 
 class Usuario(models.Model):
@@ -413,8 +415,8 @@ class Usuario(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        
-        db_table = 'usuario'
+        managed = False
+        db_table = 'Usuario'
 
 
 class AuthGroup(models.Model):
@@ -527,7 +529,7 @@ class Contrato(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        
+        managed = False
         db_table = 'contrato'
 
 
@@ -556,7 +558,7 @@ class Datosfacturacion(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        
+        managed = False
         db_table = 'datosFacturacion'
 
 
@@ -573,7 +575,7 @@ class Dependientescontrato(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        
+        managed = False
         db_table = 'dependientesContrato'
 
 
@@ -641,7 +643,7 @@ class Preexistencia(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        
+        managed = False
         db_table = 'preexistencia'
 
 
@@ -663,7 +665,7 @@ class Formulario_Contactenos(models.Model):
 #modelo ofertas vinculado con los planes
 class Ofertas(models.Model):
     
-    idplan = models.ForeignKey('plan', models.DO_NOTHING, db_column='idPlan')  # Field name made lowercase.
+    idplan = models.ForeignKey('Plan', models.DO_NOTHING, db_column='idPlan')  # Field name made lowercase.
     
     fecha_desde= models.CharField(max_length=100, blank=True, null=True)
     fecha_hasta= models.CharField(max_length=100, blank=True, null=True)
