@@ -38,6 +38,7 @@ EMAIL_PORT = 587
 #python anywhere
 ALLOWED_HOSTS = [
     'https://medicalbrokers.pythonanywhere.com',
+    'dennyssoft2023.pythonanywhere.com',
     'medicalbrokers.pythonanywhere.com',
     'localhost',
     'localhost:8000',
@@ -111,7 +112,8 @@ CORS_ORIGIN_WHITELIST=(
     'http://localhost:3000',
     'https://brokersegurosfrontend.herokuapp.com',
     'https://mbfront2022.herokuapp.com',
-    'http://medicalbrokers.pythonanywhere.com'
+    'http://medicalbrokers.pythonanywhere.com',
+    'http://dennyssoft2023.pythonanywhere.com'
 )
 
 
