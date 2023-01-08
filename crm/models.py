@@ -115,7 +115,7 @@ class Cotizacion(models.Model):
 
     class Meta:
         
-        db_table = 'contrato'
+        db_table = 'cotizacion'
 
 
 class Datosfinancieros(models.Model):
