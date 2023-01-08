@@ -3,7 +3,7 @@
 #   * Rearrange models' order
 #   * Make sure each model has one field with primary_key=True
 #   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
-#   * Remove `managed = True` lines if you wish to allow Django to create, modify, and delete the table
+#   * Remove `` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
@@ -20,7 +20,7 @@ class Cargo(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = True
+        
         db_table = 'Cargo'
 
 
@@ -51,7 +51,7 @@ class Cliente(models.Model):
     idpreexistencia = models.ForeignKey('Preexistencia', models.DO_NOTHING, db_column='idPreexistencia', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = True
+        
         db_table = 'Cliente'
 
 
@@ -69,7 +69,7 @@ class Clientedependiente(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = True
+        
         db_table = 'ClienteDependiente'
 
 
@@ -89,7 +89,7 @@ class Compania(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = True
+        
         db_table = 'Compania'
 
 
@@ -100,7 +100,7 @@ class Contactoprospecto(models.Model):
     idprospecto = models.ForeignKey('Prospecto', models.DO_NOTHING, db_column='idProspecto', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = True
+        
         db_table = 'ContactoProspecto'
 
 
@@ -115,7 +115,7 @@ class Cotizacion(models.Model):
     filepath = models.TextField(blank=True, null=True)
 
     class Meta:
-        managed = True
+        
         db_table = 'Cotizacion'
 
 
@@ -143,7 +143,7 @@ class Datosfinancieros(models.Model):
     razonsocial = models.CharField(db_column='razonSocial', max_length=45, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = True
+        
         db_table = 'DatosFinancieros'
 
 
@@ -161,7 +161,7 @@ class Deducible(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = True
+        
         db_table = 'Deducible'
 
 
@@ -187,7 +187,7 @@ class Dependiente(models.Model):
     idpreexistencia = models.ForeignKey('Preexistencia', models.DO_NOTHING, db_column='idPreexistencia', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = True
+        
         db_table = 'Dependiente'
 
 
@@ -208,7 +208,7 @@ class Direccion(models.Model):
     datodireccion = models.CharField(db_column='datoDireccion', max_length=255, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = True
+        
         db_table = 'Direccion'
 
 
@@ -227,7 +227,7 @@ class Documentodependiente(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = True
+        
         db_table = 'DocumentoDependiente'
 
 
@@ -246,7 +246,7 @@ class Documentoempleado(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = True
+        
         db_table = 'DocumentoEmpleado'
 
 
@@ -265,7 +265,7 @@ class Documentofinanciero(models.Model):
     idcliente = models.ForeignKey(Cliente, models.DO_NOTHING, db_column='idCliente', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = True
+        
         db_table = 'DocumentoFinanciero'
 
 
@@ -285,7 +285,7 @@ class Empleado(models.Model):
     correo = models.CharField(max_length=45, blank=True, null=True)
 
     class Meta:
-        managed = True
+        
         db_table = 'Empleado'
 
 
@@ -298,7 +298,7 @@ class Notificacionventas(models.Model):
     creado = models.DateTimeField()
 
     class Meta:
-        managed = True
+        
         db_table = 'NotificacionVentas'
 
 
@@ -308,7 +308,7 @@ class Notificacionventasremitentes(models.Model):
     visto = models.IntegerField()
 
     class Meta:
-        managed = True
+        
         db_table = 'NotificacionVentasRemitentes'
         unique_together = (('idnotificacion', 'idagente'),)
 
@@ -334,7 +334,7 @@ class Persona(models.Model):
     idusuario = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='idUsuario', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = True
+        
         db_table = 'Persona'
 
 
@@ -361,7 +361,7 @@ class Plan(models.Model):
     edad_maxima= models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
-        managed = True
+        
         db_table = 'Plan'
 
 
@@ -379,7 +379,7 @@ class Prospecto(models.Model):
     creado = models.DateTimeField()
 
     class Meta:
-        managed = True
+        
         db_table = 'Prospecto'
 
 
@@ -394,7 +394,7 @@ class Prospectosesion(models.Model):
     idcontactoprospecto = models.ForeignKey(Contactoprospecto, models.DO_NOTHING, db_column='idContactoProspecto', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = True
+        
         db_table = 'ProspectoSesion'
 
 
@@ -415,7 +415,7 @@ class Usuario(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = True
+        
         db_table = 'Usuario'
 
 
@@ -423,7 +423,7 @@ class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
 
     class Meta:
-        managed = True
+        
         db_table = 'auth_group'
 
 
@@ -433,7 +433,7 @@ class AuthGroupPermissions(models.Model):
     permission = models.ForeignKey('AuthPermission', models.DO_NOTHING)
 
     class Meta:
-        managed = True
+        
         db_table = 'auth_group_permissions'
         unique_together = (('group', 'permission'),)
 
@@ -444,7 +444,7 @@ class AuthPermission(models.Model):
     codename = models.CharField(max_length=100)
 
     class Meta:
-        managed = True
+        
         db_table = 'auth_permission'
         unique_together = (('content_type', 'codename'),)
 
@@ -462,7 +462,7 @@ class AuthUser(models.Model):
     date_joined = models.DateTimeField()
 
     class Meta:
-        managed = True
+        
         db_table = 'auth_user'
 
 
@@ -472,7 +472,7 @@ class AuthUserGroups(models.Model):
     group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
 
     class Meta:
-        managed = True
+        
         db_table = 'auth_user_groups'
         unique_together = (('user', 'group'),)
 
@@ -483,7 +483,7 @@ class AuthUserUserPermissions(models.Model):
     permission = models.ForeignKey(AuthPermission, models.DO_NOTHING)
 
     class Meta:
-        managed = True
+        
         db_table = 'auth_user_user_permissions'
         unique_together = (('user', 'permission'),)
 
@@ -494,7 +494,7 @@ class AuthtokenToken(models.Model):
     user = models.OneToOneField(AuthUser, models.DO_NOTHING)
 
     class Meta:
-        managed = True
+        
         db_table = 'authtoken_token'
 
 
@@ -529,7 +529,7 @@ class Contrato(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = True
+        
         db_table = 'contrato'
 
 
@@ -558,7 +558,7 @@ class Datosfacturacion(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = True
+        
         db_table = 'datosFacturacion'
 
 
@@ -575,7 +575,7 @@ class Dependientescontrato(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = True
+        
         db_table = 'dependientesContrato'
 
 
@@ -589,7 +589,7 @@ class DjangoAdminLog(models.Model):
     user = models.ForeignKey(AuthUser, models.DO_NOTHING)
 
     class Meta:
-        managed = True
+        
         db_table = 'django_admin_log'
 
 
@@ -598,7 +598,7 @@ class DjangoContentType(models.Model):
     model = models.CharField(max_length=100)
 
     class Meta:
-        managed = True
+        
         db_table = 'django_content_type'
         unique_together = (('app_label', 'model'),)
 
@@ -610,7 +610,7 @@ class DjangoMigrations(models.Model):
     applied = models.DateTimeField()
 
     class Meta:
-        managed = True
+        
         db_table = 'django_migrations'
 
 
@@ -620,7 +620,7 @@ class DjangoSession(models.Model):
     expire_date = models.DateTimeField()
 
     class Meta:
-        managed = True
+        
         db_table = 'django_session'
 
 
@@ -643,7 +643,7 @@ class Preexistencia(models.Model):
     modificado_id_usuario = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = True
+        
         db_table = 'preexistencia'
 
 
